@@ -3,7 +3,11 @@
     <header>
       <h1>My Friends</h1>
     </header>
-    <friend-contact></friend-contact>
+    <friend-contact
+      name="Nemanja Manojlovic"
+      phone="213 123 123"
+      email="example@gmail.com"
+    ></friend-contact>
   </section>
 </template>
 
