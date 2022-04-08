@@ -1,5 +1,10 @@
 <template>
-<h1>Hello World!</h1>
+  <section>
+    <h2>My Friends</h2>
+    <ul>
+      <li></li>
+    </ul>
+  </section>
 </template>
 
 <script>
@@ -18,11 +23,11 @@ export default {
           name: "Julie Jones",
           phone: "0987 6544 21",
           email: "julie@localhost.com",
-        }
-      ]
-    }
-  }
-}
+        },
+      ],
+    };
+  },
+};
 </script>
 
 <style>
