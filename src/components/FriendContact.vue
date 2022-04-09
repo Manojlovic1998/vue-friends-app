@@ -11,6 +11,7 @@
       <li><strong>Phone:</strong> {{ phone }}</li>
       <li><strong>Email:</strong> {{ email }}</li>
     </ul>
+    <button @click="onDeleteNewFriend(friendId)">Delete</button>
   </li>
 </template>
 
@@ -48,6 +49,14 @@ export default {
       console.warn("Id is missing");
       return false;
     },
+    "delete-friend": (id) => {
+      if (id) {
+        return true;
+      }
+
+      console.warn("Id is missing");
+      return false;
+    },
   },
   data() {
     return {
@@ -60,6 +69,9 @@ export default {
     },
     toggleFriendIsFavorite(id) {
       this.$emit("toggle-favorite", id);
+    },
+    onDeleteNewFriend(id) {
+      this.$emit("delete-friend", id);
     },
   },
 };
