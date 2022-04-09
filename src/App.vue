@@ -14,6 +14,7 @@
         :friendId="friend.id"
         :isFavFriend="friend.isFavFriend"
         @toggle-favorite="toggleIsFavorite"
+        @delete-friend="deleteNewFriend"
       ></friend-contact>
     </ul>
   </section>
@@ -50,6 +51,11 @@ export default {
     },
     addNewFriend(friend) {
       this.friends.push(friend);
+    },
+    deleteNewFriend(id) {
+      let newFriendsQuery = this.friends.filter((friend) => friend.id !== id);
+
+      this.friends = newFriendsQuery;
     },
   },
 };
