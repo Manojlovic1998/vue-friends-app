@@ -3,6 +3,7 @@
     <header>
       <h1>My Friends</h1>
     </header>
+    <friend-new @new-friend="addNewFriend"></friend-new>
     <ul>
       <friend-contact
         v-for="friend in friends"
@@ -47,6 +48,11 @@ export default {
       );
       friendInstance.isFavFriend = !friendInstance.isFavFriend;
     },
+    addNewFriend(friend) {
+      console.log(friend);
+      this.friends.push(friend);
+      console.log(this.friends);
+    },
   },
 };
 </script>
@@ -84,7 +90,8 @@ header {
   list-style: none;
 }
 
-#app li {
+#app li,
+#app form {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   margin: 1rem auto;
   border-radius: 10px;
@@ -116,5 +123,39 @@ header {
   background-color: #ec3169;
   border-color: #ec3169;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
+}
+
+#app input {
+  font: inherit;
+  display: block;
+  min-width: 180px;
+  padding: 0.15rem;
+  margin: 10px auto;
+}
+
+#app input[type="checkbox"] {
+  min-width: initial;
+  display: inline;
+}
+#app label {
+  font-weight: bold;
+  margin-right: 1rem;
+  width: 7rem;
+  display: inline-block;
+}
+#app form div {
+  margin: 1rem 0;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 </style>
