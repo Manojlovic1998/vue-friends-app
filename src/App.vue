@@ -10,6 +10,9 @@
         :phone="friend.phone"
         :email="friend.email"
         :key="friend.id"
+        :friendId="friend.id"
+        :isFavFriend="friend.isFavFriend"
+        @toggle-favorite="toggleIsFavorite"
       ></friend-contact>
     </ul>
   </section>
@@ -25,15 +28,25 @@ export default {
           name: "Manuel  Lorenz",
           phone: "0123 4567 90",
           email: "manuel@localhost.com",
+          isFavFriend: true,
         },
         {
           id: "julie",
           name: "Julie Jones",
           phone: "0987 6544 21",
           email: "julie@localhost.com",
+          isFavFriend: false,
         },
       ],
     };
+  },
+  methods: {
+    toggleIsFavorite(friendId) {
+      let friendInstance = this.friends.find(
+        (friend) => friend.id === friendId
+      );
+      friendInstance.isFavFriend = !friendInstance.isFavFriend;
+    },
   },
 };
 </script>
