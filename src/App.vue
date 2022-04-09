@@ -49,9 +49,7 @@ export default {
       friendInstance.isFavFriend = !friendInstance.isFavFriend;
     },
     addNewFriend(friend) {
-      console.log(friend);
       this.friends.push(friend);
-      console.log(this.friends);
     },
   },
 };
