@@ -3,11 +3,15 @@
     <header>
       <h1>My Friends</h1>
     </header>
-    <friend-contact
-      name="Nemanja Manojlovic"
-      phone="213 123 123"
-      email="example@gmail.com"
-    ></friend-contact>
+    <ul>
+      <friend-contact
+        v-for="friend in friends"
+        :name="friend.name"
+        :phone="friend.phone"
+        :email="friend.email"
+        :key="friend.id"
+      ></friend-contact>
+    </ul>
   </section>
 </template>
 
