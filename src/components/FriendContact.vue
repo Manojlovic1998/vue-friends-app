@@ -4,7 +4,7 @@
     <button @click="toggleDetails">
       {{ detailsAreVisible ? "Hide" : "Show" }}
     </button>
-    <button @click="toggleFriendIsFavorite">
+    <button @click="toggleFriendIsFavorite(friendId)">
       {{ isFavFriend ? "Unfavorite" : "Favorite" }}
     </button>
     <ul v-if="detailsAreVisible">
@@ -39,6 +39,16 @@ export default {
       required: true,
     },
   },
+  emits: {
+    "toggle-favorite": (id) => {
+      if (id) {
+        return true;
+      }
+
+      console.warn("Id is missing");
+      return false;
+    },
+  },
   data() {
     return {
       detailsAreVisible: false,
@@ -48,8 +58,8 @@ export default {
     toggleDetails() {
       this.detailsAreVisible = !this.detailsAreVisible;
     },
-    toggleFriendIsFavorite() {
-      this.$emit("toggle-favorite", this.friendId);
+    toggleFriendIsFavorite(id) {
+      this.$emit("toggle-favorite", id);
     },
   },
 };
